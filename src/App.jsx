@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import {
-  Activity, HeartPulse, Brain, Bone, ShieldCheck, Radio, Bell, Settings,
+  Activity, HeartPulse, Brain, Bone, ShieldCheck, Radio, Bell, Settings, AlertTriangle,
   LayoutDashboard, User, ChevronRight, Globe2, Moon, Wind, X, CheckCircle2,
 } from "lucide-react";
 import PhysiologicalHealth from "./PhysiologicalHealth.jsx";
 import BehaviouralHealth from "./BehaviouralHealth.jsx";
 import BoneHealth from "./BoneHealth.jsx";
 import SpaceEnvironment from "./SpaceEnvironment.jsx";
+import EmergencySupport from "./EmergencySupport.jsx";
 import EarthGlobe from "./EarthGlobe.jsx";
 import GalaxyBackground from "./GalaxyBackground.jsx";
 import "./App.css";
@@ -17,6 +18,7 @@ const navigation = [
   { name: "Behavioural Health", icon: Brain },
   { name: "Bone Health", icon: Bone },
   { name: "Space Environment", icon: Globe2 },
+  { name: "Emergency Support", icon: AlertTriangle },
 ];
 
 const demoReadings = [
@@ -63,6 +65,7 @@ function App() {
   else if (active === "Behavioural Health") page = <BehaviouralHealth onSave={saveCheckIn} checkIns={checkIns} message={checkInMessage} />;
   else if (active === "Bone Health") page = <BoneHealth />;
   else if (active === "Space Environment") page = <SpaceEnvironment />;
+  else if (active === "Emergency Support") page = <EmergencySupport readings={readings} />;
   else page = <Overview onNavigate={setActive} onCheckIn={() => setActive("Behavioural Health")} readings={readings} />;
   return <div className="app-shell">
     <GalaxyBackground />
